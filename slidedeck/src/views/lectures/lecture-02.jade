@@ -1,0 +1,571 @@
+doctype html
+include ../includes/mixins
+
++page("Lecture 02 - Angular Bootcamp")
+  +lecture-title-page("Angular Bootcamp", "Lecture 02")
+
+  section
+    h1 Lab One
+    h2 Solution
+
+  section
+    h1 Module System
+
+  section
+    p Angular apps don't have a main method.
+    p Modules declaratively specify how an application should be bootstrapped.
+
+  section
+    h3 Advantages
+    ul
+      li The declarative process is easier to understand.
+      li You can package code as reusable modules.
+      li The modules can be loaded in any order because modules delay execution.
+
+  section
+    p The code below creates a new module named 'app'
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app', []);
+
+      </code>
+
+  section
+    p Modules can list other modules as their dependencies.
+    p Each module will only be loaded once, even if multiple other modules require it.
+
+  section
+    p Below is an example of how to specify a module dependency.
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app', [
+        'feature1'
+      ]);
+
+      angular.module('feature1', [
+        'feature1.1'
+      ]);
+
+      angular.module('feature1.1', []);
+
+      </code>
+
+  section
+    p Module instantiation has 2 phases: config and run.
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app', [])
+        .config(function (someProvider) {
+          // use provider to set up module
+        })
+        .run(function (aService) {
+          // use service
+        });
+
+      </code>
+
+  section
+    h1 Dependency
+    h1 Injection
+
+  section
+    p
+       | The Angular injector subsystem is in charge of service instantiation, resolution of dependencies, and
+       | provision of dependencies to components as requested.
+
+  section
+    p The example below shows how to specify that $scope and myService need to be injected into the function.
+    br
+    pre.
+      <code class="js" data-trim>
+        function AwesomeFn($scope, myService) {
+
+        }
+
+      </code>
+
+  section
+    p Angular also has an array syntax for specifying dependencies, similar to AMD.
+    br
+    pre.
+      <code class="js" data-trim>
+        [
+          '$scope',
+          'myService',
+          function AwesomeFn($scope, myService) {
+
+          }
+        ]
+
+      </code>
+
+  section
+    h1 HTML Compiler
+
+  section
+    p Angular's HTML compiler allows the developer to teach the browser new HTML syntax.
+
+  section
+    p
+      | It allows you to attach behavior to any HTML element or attribute and even create new HTML
+      | elements or attributes with custom behavior.
+
+  section
+    p Angular calls these behavior extensions
+      strong  directives.
+
+  section
+    p So what does a directive look like?
+    br
+    .text-center
+      pre.
+        <code class="html" data-trim>
+        &lt;div ng-bind="exp"&gt;&lt;/div&gt;
+
+        </code>
+
+  section
+    p Now, back to the compiler
+
+  section
+    p The
+    strong  compiler
+    |  is an Angular service which traverses the DOM looking for directives.
+
+  section
+    p The compilation process happens in two phases.
+
+  section
+    h3 Link
+    p Traverse the DOM and collect all of the directives.
+
+  section
+    h3 Compile
+    p
+      | Combine the directives with a scope and produce a live view. Any changes in the scope model are
+      | reflected in the view, and any user interactions with the view are reflected in the scope model.
+
+  section
+    p This makes the scope model the single source of truth.
+
+  section
+    h2 Scope
+
+  section
+    p
+      strong  Scope
+      |  is an object that refers to the application model.  It is an execution context for expressions.
+
+  section
+    img.no-style.slide-image(src="/angular-midwestjs-workshop/assets/img/nested-scope.png")
+
+  section
+    h3 Communicating with the outside world
+    p
+      strong  $scope.$apply:
+      |  Connect the outside into the Angular world.
+    p
+      strong  $scope.$parse:
+      |  Gets you two-way binding.
+    p
+      strong  $scope.$watch:
+      |  Helps you react to changes.
+
+  section
+    p Let's see the HTML compiler in action.
+
+  section
+    p
+      strong  ng-init
+      |  evaluates a JavaScript expression on scope.
+    p
+      strong  ng-bind
+      |  takes a variable on scope and sets the content of the element to it.
+    br
+    pre.
+      <code class="html" data-trim>
+      &lt;div ng-init="myVar = 1 + 2;"&gt;
+        &lt;p ng-bind="myVar"&gt;&lt;/p&gt;
+      &lt;/div&gt;
+
+      </code>
+
+    p What will the DOM look like after compilation and linking?
+
+  section
+    pre.
+      <code class="html" data-trim>
+      &lt;div ng-init="myVar = 1 + 2;"&gt;
+        &lt;p ng-bind="myVar"&gt;3&lt;/p&gt;
+      &lt;/div&gt;
+
+      </code>
+
+  section
+    p Instead of using ng-bind, we can use the shorthand {{ }}
+
+  section
+    p The linker will execute the expression inside {{ }} on scope and replace it with the result.
+
+  section
+    pre.
+      <code class="html" data-trim>
+      &lt;div ng-init="myVar = 1 + 2;"&gt;
+        &lt;p&gt;{{myVar}}{{myVar + 1}}&lt;/p&gt;
+      &lt;/div&gt;
+
+      </code>
+
+    p What will the DOM look like after compilation and linking?
+
+  section
+    pre.
+      <code class="html" data-trim>
+      &lt;div ng-init="myVar = 1 + 2;"&gt;
+        &lt;p&gt;34&lt;/p&gt;
+      &lt;/div&gt;
+
+      </code>
+
+  section
+    h1 Controllers
+
+  section
+    p In Angular, a
+      strong  controller
+      |  is a JavaScript constructor function that is used to augment the Angular Scope.
+
+  section
+    p You can create controllers on a module.  The first argument is the controller name, and the second is the constructor function.
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app.controllers', [])
+        .controller('AppController',
+          function() {
+
+          }
+        );
+
+      </code>
+
+  section
+    p When creating a controller you can inject the new scope as well as other dependencies.
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app.controllers', [])
+        .controller('AppController',
+          function($scope, $interval) {
+
+          }
+        );
+
+      </code>
+
+  section
+    p You can associate controllers with scope objects implicitly via the
+      strong  ngController
+      |  directive.
+
+  section
+    p Controller
+    pre.
+      <code class="js" data-trim>
+      angular.module('app.controllers', [])
+        .controller('AppController',
+          function($scope) {
+            $scope.time = new Date();
+          }
+        );
+
+      </code>
+
+    p Template
+    pre.
+      <code class="html" data-trim>
+      &lt;div ng-controller="AppController" &gt;
+        &lt;p&gt;{{time}}&lt;/p&gt;
+      &lt;/div&gt;
+
+      </code>
+
+  section(id="example1", ng-controller="AppController")
+    p Final result
+    pre.
+      <code class="html" data-trim>
+      &lt;div ng-controller="AppController" &gt;
+        &lt;p&gt;{{time}}&lt;/p&gt;
+      &lt;/div&gt;
+
+      </code>
+
+  section
+    p Let's add some functionality to scope and show off data binding.
+
+  section
+    p The
+      strong  $interval
+      |  service executes a function on scope in the supplied interval.
+    pre.
+      <code class="js" data-trim>
+      angular.module('app.controllers', [])
+        .controller('TimeController',
+          function($scope, $interval) {
+            // Set the value of $scope.time to 'now' every 10 ms
+            $interval(function() {
+              $scope.time = new Date();
+            }, 10);
+          }
+        );
+
+      </code>
+    pre.
+      <code class="html" data-trim>
+      &lt;div ng-controller="TimeController"&gt;
+        &lt;p&gt;{{time}}&lt;/p&gt;
+      &lt;/div&gt;
+
+      </code>
+
+  section(id="example2", ng-controller="TimeController")
+    h2(style="font-family: monospace;") {{time}}
+
+  section
+    img.no-style.slide-image(src='/angular-midwestjs-workshop/assets/img/suprised.gif')
+
+  section
+    h1 Bootstrapping
+
+  section
+    p
+      | Angular initializes automatically upon DOMContentLoaded event or when the angular.js script is evaluated if at that
+      | time document.readyState is set to 'complete'.
+
+  section
+    p At this point Angular looks for the
+      strong  ng-app
+      |  directive which designates your application root.
+
+  section
+    p Typically the
+      strong  ng-app
+      |  directive is used on the root html or body elements so that the entire document is traversed and linked by the compiler.
+    br
+    pre.
+      <code class="html" data-trim>
+      &lt;html ng-app="app"&gt;
+
+      &lt;/html&gt;
+
+      </code>
+
+  section
+    h1 Providers
+  section
+    p The AngularJS injector creates two types of objects,
+      strong  specialized objects
+      |  and
+      strong  services.
+
+  section
+    h3 Specialized Objects
+    p
+      strong Specialized objects
+      |  conform to a specific Angular framework API.
+  section
+    p An example of these specialized objects are controllers, directives, filters or animations.
+  section
+    h3 Services
+    p
+      strong Services
+      |  are objects whose API is defined by the developer writing the service.
+  section
+    p The injector needs to know how to create these objects.
+  section
+    p You tell the injector by registering a
+      strong  recipe
+      |  for creating your object.
+  section
+    p There are five recipe types.
+  section
+    h2 Value Recipe
+  section
+    p You can use the
+      strong  Value recipe
+      |  to create named values that are injectable.
+  section
+    p You cannot inject dependencies into a Value recipe.
+  section
+    p The Value recipe is often used for specifying configuration values.
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app', [])
+        .value('apiUrl', '/api')
+        .controller('MyCtrl', function(apiUrl) {
+          // Do something with the apiUrl
+        });
+      </code>
+  section
+    h2 Constant Recipe
+  section
+    p  Since the config function runs in the configuration phase when no services are available,
+      | it doesn't have access even to simple value objects created via Value recipe.
+  section
+    p Since simple values don't have dependencies or configuration,
+      | it is often handy to make them available in both the configuration and run phases.
+    p This is what the
+      strong  Constant recipe
+      |  is for.
+  section
+    pre.
+      <code class="js" data-trim>
+      angular.module('app')
+        .constant('apiUrl', '/api');
+      </code>
+  section
+    h2 Factory Recipe
+  section
+    p The
+      strong  Factory recipe
+      |  builds on top of the Value recipe, but adds the following abilities:
+    ul
+      li the ability to use other services (have dependencies)
+      li service initialization
+      li delayed/lazy initialization
+  section
+    p The Factory recipe constructs a new service using a function with zero or more arguments (these are dependencies on other services).
+  section
+    p We can use the Factory recipe to provide utility functions that have other dependencies.
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app', [])
+        .factory('authentication', function(myDependency) {
+          var authentication = {
+            login : function(username, password) {
+              // Perform login functionality with myDependency
+            },
+            logout : function(username, password) {
+              // Perform logout functionality with myDependency
+            },
+          };
+          return authentication;
+        });
+      </code>
+  section
+    h2 Service Recipe
+  section
+    p The
+      strong  Service recipe
+      |  produces a service just like the Value or Factory recipes, but it does so by invoking a constructor with the new operator.
+  section
+    p First, let's see how we can implement a Service recipe with a factory.
+    br
+    pre.
+      <code class="js" data-trim>
+      function AuthenticationService(myDependency) {
+        this.loginAttempts = 0;
+        this.login = function(username, password) {
+          this.loginAttempts++;
+          // Perform login functionality with myDependency
+        };
+        this.logout = function(username, password) {
+          this.loginAttempts = 0;
+          // Perform logout functionality with myDependency
+        };
+      };
+      </code>
+  section
+    p With the AuthenticationService constructor function we just created, we can then register the new service.
+    pre.
+      <code class="js" data-trim>
+      angular.module('app', [])
+        .factory('authentication', function (myDependency) {
+          // The service recipe does this for you
+          return new AuthenticationService(myDependency);
+        });
+      </code>
+  section
+    p Using the Service recipe, we can accomplish the same thing with less code.
+    br
+    pre.
+      <code class="js" data-trim>
+      angular.module('app', [])
+        .service('authentication', function(myDependency) {
+          this.loginAttempts = 0;
+          this.login = function(username, password) {
+            this.loginAttempts++;
+            // Perform login functionality with myDependency
+          };
+          this.logout = function(username, password) {
+            this.loginAttempts = 0;
+            // Perform logout functionality with myDependency
+          };
+        });
+      </code>
+  section
+    p Service recipes follow a design pattern called
+      strong  constructor injection.
+  section
+    h2 Providers
+  section
+    p The
+      strong  Provider recipe
+      |  is the core recipe type; all the other recipe types are just syntactic sugar on top of it.
+  section
+    p It's the most verbose recipe with the most abilities, but for most services it's overkill.
+  section
+    p You should use the Provider recipe only when you want to expose an API for application-wide configuration before the application starts.
+  section
+    p The Provider recipe is syntactically defined as a custom type that implements a
+      strong  $get
+      |  method.
+  section
+    p This method is a factory function just like the one we use in Factory recipe.
+    p In fact, if you define a Factory recipe, an empty Provider type with the
+      Strong  $get
+      |  method set to your factory function is automatically created under the hood.
+  section
+    p Let's look at an example:
+    pre.
+      <code class="js" data-trim>
+      .provider('authorization', {
+        $get: function ($injector, authentication, securityContext) {
+          return {
+            requireAuthenticatedUser: function () {
+              // implementation for requiring an authenticated user.
+            }
+          };
+        }
+      });
+      </code>
+
+  section
+    h1 Lab Two
+    h2 Angular Quickstart
+
+  script.
+    angular.module('lecture02', [])
+      .controller('AppController', [
+        '$scope',
+        function($scope) {
+          $scope.time = new Date();
+        }
+      ])
+      .controller('TimeController', [
+        '$scope',
+        '$interval',
+        function($scope, $interval) {
+          $interval(function() {
+            $scope.time = new Date();
+          }, 10);
+        }
+      ]);
+
+    angular.bootstrap(document.getElementById("example1"), ['lecture02']);
+    angular.bootstrap(document.getElementById("example2"), ['lecture02']);
