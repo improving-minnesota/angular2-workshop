@@ -2,8 +2,11 @@
   * Content (15 minutes)
     * Who are we
     * Goals
-      * TypeScript
-      * ReactJS
+      * New Technologies
+        * TypeScript
+        * ReactJS
+        * Angular CLI
+        * Webpack
       * Components, directives, and pipes
       * Overarching themes:
         * Built in directives
@@ -26,6 +29,9 @@
       * Route
       * TypeScript class
       * Templates
+        * Using directives
+        * 4 ways to bind
+        * Template tag and shortcut
       * Styles
     * Lab
       * BUILD WHAT?
