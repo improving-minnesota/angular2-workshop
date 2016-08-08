@@ -51,7 +51,7 @@
 
 * Lunch
 
-* Part 4 Template driven forms
-* Part 5 Model driven forms
-* Part 6 Pipes and directives
+* Part 5 Template driven forms
+* Part 6 Model driven forms
+* Part 7 Pipes and directives
 * Bonus Overriding HTTP
