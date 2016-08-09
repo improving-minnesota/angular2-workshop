@@ -8,6 +8,7 @@
     "part-1/03.md",
     "part-1/04.md",
     "part-1/04-a.md",
+    "part-1/04-b.md",
     "part-1/05.md",
     "part-1/06.md",
     "part-1/07.md",
@@ -63,6 +64,8 @@
     "part-4/04.md",
     "part-4/05.md",
     "part-4/06.md",
+    "part-4/06-0a.md",
+    "part-4/06-a.md",
     "part-4/07.md",
     "part-4/08.md"
   ],
@@ -73,11 +76,8 @@
     "part-5/04.md",
     "part-5/05.md",
     "part-5/06.md",
-    "part-5/07.md",
-    "part-5/08.md",
-    "part-5/09.md",
-    "part-5/10.md",
-    "part-5/11.md"
+    "part-5/06-a.md",
+    "part-5/07.md"
   ],
   [
     "part-6/01.md",
@@ -87,6 +87,7 @@
     "part-6/05.md",
     "part-6/06.md",
     "part-6/07.md",
+    "part-6/07-a.md",
     "part-6/08.md"
   ],
   [
@@ -96,10 +97,6 @@
     "part-7/04.md",
     "part-7/05.md",
     "part-7/06.md",
-    "part-7/07.md",
-    "part-7/08.md",
-    "part-7/09.md",
-    "part-7/10.md",
-    "part-7/11.md"
+    "part-7/07.md"
   ]
 ]
