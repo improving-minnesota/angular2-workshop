@@ -2,7 +2,7 @@
     {
         "filename": "index.md",
         "attr": {
-            "data-background-image": "http://localhost:9000/resources/logo.gif",
+            "data-background-image": "/resources/logo.gif",
             "data-background-repeat": "no-repeat",
             "data-background-attachment": "fixed",
             "data-background-position": "50px 50px",
@@ -13,7 +13,7 @@
         {
             "filename": "part-1/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
@@ -38,7 +38,7 @@
         {
             "filename": "part-2/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
@@ -69,7 +69,7 @@
         {
             "filename": "part-3/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
@@ -98,7 +98,7 @@
         {
             "filename": "part-4/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
@@ -120,7 +120,7 @@
         {
             "filename": "part-5/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
@@ -139,7 +139,7 @@
         {
             "filename": "part-6/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
@@ -159,7 +159,7 @@
         {
             "filename": "part-7/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
@@ -177,7 +177,7 @@
         {
             "filename": "part-8/01.md",
             "attr": {
-                "data-background-image": "http://localhost:9000/resources/logo.gif",
+                "data-background-image": "/resources/logo.gif",
                 "data-background-repeat": "no-repeat",
                 "data-background-attachment": "fixed",
                 "data-background-position": "50px 50px",
