@@ -1,0 +1,5 @@
+.reveal em,.reveal i {font-style: inherit;}
+
+.reveal pre code {
+    font-size: 0.6em;
+}
