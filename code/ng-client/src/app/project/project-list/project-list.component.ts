@@ -12,7 +12,7 @@ export class ProjectListComponent implements OnInit {
 
   projects: Project[];
 
-  constructor(private projectService: ProjectService, private router: Router) {
+  constructor(private projectService: ProjectService) {
     this.projects = [];
   }
 
@@ -20,10 +20,6 @@ export class ProjectListComponent implements OnInit {
     this.projectService.getProjects().subscribe((projects) => {
       this.projects = projects;
     });
-  }
-
-  add() {
-    this.router.navigateByUrl('/home/projects/new');
   }
 
 }
