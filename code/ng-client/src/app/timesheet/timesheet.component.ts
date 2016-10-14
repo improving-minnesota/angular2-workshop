@@ -1,21 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {MD_PROGRESS_CIRCLE_DIRECTIVES} from '@angular2-material/progress-circle/progress-circle';
-;
-import {TimeUnitsComponent} from '../time-units/time-units.component';
-import {TimesheetDetailComponent} from '../timesheet-detail/timesheet-detail.component';
 import {IdentityService} from '../auth';
-import {TimesheetService} from '../shared';
-import {Timesheet} from '../shared/Timesheet';
-import {TimeUnit} from '../shared/TimeUnit';
+import {TimesheetService} from './timesheet.service';
+import {Timesheet} from './Timesheet';
+import {TimeUnit} from '../time-units';
 
 @Component({
   selector: 'app-timesheet',
   templateUrl: 'timesheet.component.html',
   styleUrls: ['timesheet.component.scss'],
-  providers: [TimesheetService],
-  directives: [TimeUnitsComponent, TimesheetDetailComponent, MD_PROGRESS_CIRCLE_DIRECTIVES]
+  providers: [TimesheetService]
 })
 export class TimesheetComponent implements OnInit {
 

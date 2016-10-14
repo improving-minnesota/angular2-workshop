@@ -1,16 +1,14 @@
-import { provideRouter, RouterConfig } from '@angular/router';
-import { TimesheetListComponent } from './timesheet-list';
+import { ModuleWithProviders }  from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login';
 import { NavigationComponent } from './navigation';
-import { ProjectListComponent } from './project-list';
-import { EmployeeListComponent } from './employee-list';
-import { ProjectNewComponent } from './project-new/project-new.component';
-import { EmployeeNewComponent } from './employee-new/employee-new.component';
-import { TimesheetNewComponent } from './timesheet-new/timesheet-new.component';
-import { TimesheetComponent } from './timesheet/timesheet.component';
-import { TimesheetEntryComponent } from './timesheet-entry/timesheet-entry.component';
+import { EmployeeListComponent, EmployeeNewComponent } from './employee';
+import { ProjectNewComponent, ProjectListComponent } from './project';
+import { TimesheetComponent, TimesheetNewComponent, TimesheetListComponent, TimesheetEntryComponent } from './timesheet';
 
-export const routes: RouterConfig = [
+
+//TODO: should each component define it's own route?
+const appRoutes: Routes = [
   {
     path: 'home',
     component: NavigationComponent,
@@ -33,6 +31,4 @@ export const routes: RouterConfig = [
   }
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
