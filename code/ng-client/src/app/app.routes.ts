@@ -4,7 +4,7 @@ import { LoginComponent } from './login';
 import { NavigationComponent } from './navigation';
 import { EmployeeListComponent, EmployeeNewComponent } from './employee';
 import { ProjectNewComponent, ProjectListComponent } from './project';
-import { TimesheetComponent, TimesheetNewComponent, TimesheetListComponent, TimesheetEntryComponent } from './timesheet';
+import { TimesheetComponent, TimesheetNewComponent, TimesheetListComponent } from './timesheet';
 
 const appRoutes: Routes = [
   {
@@ -17,8 +17,7 @@ const appRoutes: Routes = [
       { path: 'employees/new', component: EmployeeNewComponent },
       { path: 'timesheets', component: TimesheetListComponent, pathMatch: 'full' },
       { path: 'timesheets/new', component: TimesheetNewComponent },
-      { path: 'timesheets/:id', component: TimesheetComponent },
-      { path: 'timesheets/:id/entry', component: TimesheetEntryComponent }
+      { path: 'timesheets/:id', component: TimesheetComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
