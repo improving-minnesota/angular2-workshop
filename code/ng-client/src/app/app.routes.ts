@@ -9,8 +9,7 @@ const appRoutes: Routes = [
     path: 'home',
     component: NavigationComponent,
     children: [
-      { path: 'projects', component: ProjectListComponent, pathMatch: 'full'},
-      { path: 'employees', component: EmployeeListComponent, pathMatch: 'full'}
+      { path: 'projects', component: ProjectListComponent, pathMatch: 'full'}
     ]
   },
   {

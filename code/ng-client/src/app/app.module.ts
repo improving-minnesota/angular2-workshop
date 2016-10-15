@@ -6,7 +6,6 @@ import { routing } from './app.routes';
 import { AppComponent } from './app.component';
 import {NavigationModule} from './navigation'
 import {ProjectModule} from './project'
-import {EmployeeModule} from './employee'
 import {ExtHttp} from './shared/extHttp.service';
 import {ResponseHandler} from './auth/responseHandler.service';
 import {MdIconRegistry} from '@angular/material';
@@ -20,8 +19,7 @@ import {MdIconRegistry} from '@angular/material';
     HttpModule,
     routing,
     NavigationModule,
-    ProjectModule,
-    EmployeeModule
+    ProjectModule
   ],
   providers: [ExtHttp, ResponseHandler, MdIconRegistry],
   bootstrap: [AppComponent]
