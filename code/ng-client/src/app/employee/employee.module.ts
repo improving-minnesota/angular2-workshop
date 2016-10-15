@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { EmployeeNewComponent } from './employee-new';
 import { EmployeeListComponent } from './employee-list';
 import { FormsModule }   from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -8,7 +7,7 @@ import {EmployeeService} from './employee.service'
 
 @NgModule({
   declarations: [
-    EmployeeListComponent, EmployeeNewComponent
+    EmployeeListComponent
   ],
   imports: [
     CommonModule,
