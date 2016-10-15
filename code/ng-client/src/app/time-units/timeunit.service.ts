@@ -16,4 +16,16 @@ export class TimeUnitService {
       });
     });
   }
+
+  getTimeUnits(user: User, timesheetId: string): Observable<any> {
+    return Observable.create((observer) => {
+      this.http.get(`/users/${user.id}/timesheets/${timesheetId}/timeunits`).subscribe((response) => {
+        let units = response.json().map((data) => {
+          let unit = new TimeUnit(data);
+          return unit;
+        });
+        observer.next(units);
+      });
+    });
+  }
 }

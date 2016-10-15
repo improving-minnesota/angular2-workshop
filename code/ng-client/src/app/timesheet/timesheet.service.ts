@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { ExtHttp } from '../shared';
 import { User } from '../auth';
 import { Timesheet } from './Timesheet';
-import { TimeUnit } from '../time-units';
 
 @Injectable()
 export class TimesheetService {
@@ -23,18 +22,6 @@ export class TimesheetService {
     return Observable.create((observer) => {
       this.http.get(`/users/${user.id}/timesheets/${timesheetId}`).subscribe((response) => {
         observer.next(new Timesheet(response.json()));
-      });
-    });
-  }
-
-  getTimeUnits(user: User, timesheetId: string): Observable<any> {
-    return Observable.create((observer) => {
-      this.http.get(`/users/${user.id}/timesheets/${timesheetId}/timeunits`).subscribe((response) => {
-        let units = response.json().map((data) => {
-          let unit = new TimeUnit(data);
-          return unit;
-        });
-        observer.next(units);
       });
     });
   }

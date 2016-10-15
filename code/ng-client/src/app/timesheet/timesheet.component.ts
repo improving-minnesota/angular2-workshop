@@ -5,12 +5,12 @@ import {IdentityService} from '../auth';
 import {TimesheetService} from './timesheet.service';
 import {Timesheet} from './Timesheet';
 import {TimeUnit} from '../time-units';
+import {TimeUnitService} from '../time-units/timeunit.service';
 
 @Component({
   selector: 'app-timesheet',
   templateUrl: 'timesheet.component.html',
   styleUrls: ['timesheet.component.scss'],
-  providers: [TimesheetService]
 })
 export class TimesheetComponent implements OnInit {
 
@@ -23,6 +23,7 @@ export class TimesheetComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private identityService: IdentityService,
+              private timeUnitService: TimeUnitService,
               private timesheetService: TimesheetService) {
   }
 
@@ -39,7 +40,7 @@ export class TimesheetComponent implements OnInit {
           this.timesheet = timesheet;
         });
 
-      this.timesheetService.getTimeUnits(this.identityService.user, this.timesheetId)
+      this.timeUnitService.getTimeUnits(this.identityService.user, this.timesheetId)
         .subscribe((timeUnits) => {
           this.timeUnits = timeUnits;
           timesheetObservable.subscribe(() => {
