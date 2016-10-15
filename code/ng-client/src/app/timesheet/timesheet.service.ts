@@ -18,12 +18,7 @@ export class TimesheetService {
     });
   }
 
-  getTimesheet(user: User, timesheetId: string): Observable<Timesheet> {
-    return Observable.create((observer) => {
-      this.http.get(`/users/${user.id}/timesheets/${timesheetId}`).subscribe((response) => {
-        observer.next(new Timesheet(response.json()));
-      });
-    });
-  }
+  // TODO: Implement me
+  //getTimesheet(user: User, timesheetId: string): Observable<Timesheet> {}
 
 }
