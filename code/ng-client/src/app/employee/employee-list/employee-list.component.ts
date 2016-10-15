@@ -13,8 +13,6 @@ export class EmployeeListComponent implements OnInit {
 
   employees: Employee[];
 
-  condition: boolean;
-
   constructor(private employeeService: EmployeeService, private router: Router) {
   }
 
@@ -22,11 +20,5 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.getEmployees().subscribe((employees) => {
       this.employees = employees;
     });
-    this.condition = false;
   }
-
-  add() {
-    this.router.navigateByUrl('/home/employees/new');
-  }
-
 }

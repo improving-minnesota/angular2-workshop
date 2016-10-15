@@ -26,11 +26,4 @@ export class TimesheetService {
     });
   }
 
-  save(user: User, timesheet: Timesheet) {
-    return Observable.create((observer) => {
-      this.http.post(`/users/${user.id}/timesheets`, timesheet).subscribe((response) => {
-        observer.next(response.json());
-      });
-    });
-  }
 }
