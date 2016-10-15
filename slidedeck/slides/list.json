@@ -9,7 +9,7 @@
       "data-background-size": "20%"
     }
   },
-  d[
+  [
     {
       "filename": "part-1/01.md",
       "attr": {
@@ -234,32 +234,6 @@
     "part-7/06.md",
     {
       "filename": "part-7/07.md",
-      "attr": {
-        "data-background-image": "resources/logo.gif",
-        "data-background-repeat": "no-repeat",
-        "data-background-attachment": "fixed",
-        "data-background-position": "50px 50px",
-        "data-background-size": "15%"
-      }
-    }
-  ],
-  [
-    {
-      "filename": "part-8/01.md",
-      "attr": {
-        "data-background-image": "resources/logo.gif",
-        "data-background-repeat": "no-repeat",
-        "data-background-attachment": "fixed",
-        "data-background-position": "50px 50px",
-        "data-background-size": "20%"
-      }
-    },
-    "part-8/02.md",
-    "part-8/02-a.md",
-    "part-8/02-b.md",
-    "part-8/03.md",
-    {
-      "filename": "part-8/04.md",
       "attr": {
         "data-background-image": "resources/logo.gif",
         "data-background-repeat": "no-repeat",
