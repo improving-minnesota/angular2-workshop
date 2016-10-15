@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:objectpartners/angular2-midwestjs-slides.git"
+    "url": "git@github.com:objectpartners/angular2-slides.git"
 
   },
   "scripts": {
